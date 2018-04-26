@@ -1,0 +1,30 @@
+{
+  "name": "developer-exercise",
+  "version": "1.0.0",
+  "description": "react and ruby test",
+  "scripts": {
+    "start": "webpack -w & nodemon server --ignore /client --ignore /public",
+    "start-server": "nodemon server",
+    "build-client": "webpack",
+    "watch": "webpack --watch"
+  },
+  "main": "index.js",
+  "repository": "git@github.com:knightofknee/developer-exercise.git",
+  "author": "knightofknee <bricarlis@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.3",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.6.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^2.0.15"
+  }
+}
