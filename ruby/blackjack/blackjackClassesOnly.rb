@@ -10,19 +10,19 @@ class Deck
   attr_accessor :playable_cards
   SUITES = [:hearts, :diamonds, :spades, :clubs]
   NAME_VALUES = {
-    :two   => 2,
-    :three => 3,
-    :four  => 4,
-    :five  => 5,
-    :six   => 6,
-    :seven => 7,
-    :eight => 8,
-    :nine  => 9,
-    :ten   => 10,
-    :jack  => 10,
-    :queen => 10,
-    :king  => 10,
-    :ace   => 1}
+      :two   => 2,
+      :three => 3,
+      :four  => 4,
+      :five  => 5,
+      :six   => 6,
+      :seven => 7,
+      :eight => 8,
+      :nine  => 9,
+      :ten   => 10,
+      :jack  => 10,
+      :queen => 10,
+      :king  => 10,
+      :ace   => 1}
 
   def initialize
     shuffle
@@ -49,45 +49,6 @@ class Hand
 
   def initialize
     @cards = []
-  end
-end
-
-require 'test/unit'
-
-class CardTest < Test::Unit::TestCase
-  def setup
-    @card = Card.new(:hearts, :ten, 10)
-  end
-
-  def test_card_suite_is_correct
-    assert_equal @card.suite, :hearts
-  end
-
-  def test_card_name_is_correct
-    assert_equal @card.name, :ten
-  end
-  def test_card_value_is_correct
-    assert_equal @card.value, 10
-  end
-end
-
-class DeckTest < Test::Unit::TestCase
-  def setup
-    @deck = Deck.new
-  end
-
-  def test_new_deck_has_52_playable_cards
-    assert_equal @deck.playable_cards.size, 52
-  end
-
-  def test_dealt_card_should_not_be_included_in_playable_cards
-    card = @deck.deal_card
-    assert(!@deck.playable_cards.include?(card))
-  end
-
-  def test_shuffled_deck_has_52_playable_cards
-    @deck.shuffle
-    assert_equal @deck.playable_cards.size, 52
   end
 end
 
@@ -180,36 +141,4 @@ class Game
 
 end
 
-class GameTest < Test::Unit::TestCase
-  def setup
-    @game = Game.new
-  end
 
-  def test_new_game_has_dealer_cards
-    assert_equal @game.dealer_hand.size, 2
-  end
-
-  def test_new_game_has_player_cards
-    assert_equal @game.player_hand.size, 2
-  end
-
-  def test_player_score_calc
-    @game.player_hand = [Card.new(:hearts, :ten, 10), Card.new(:hearts, :ace, 1)]
-    assert_equal @game.calculate_player_score, 21
-  end
-
-  def test_black_jack_test
-    @game.player_hand = [Card.new(:hearts, :ten, 10), Card.new(:hearts, :ace, 1)]
-    assert_equal @game.player_turn, 2
-  end
-
-  def test_game_has_turn_play
-    assert_equal @game.player_turn, true
-  end
-
-  def test_game_has_dealer_play
-    @game.player_turn
-    assert_equal @game.dealer_turn, true
-  end
-
-end
