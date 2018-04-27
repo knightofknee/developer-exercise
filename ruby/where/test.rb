@@ -1,5 +1,76 @@
 require 'minitest/autorun'
 
+class Array
+  def where(searchObject)
+    results = []
+
+    self.each {|entry|
+      specsMet = 0
+      searchObject.each {|key, value|
+        if value.is_a?(String)
+          if entry[key].include? value
+            specsMet += 1
+          end
+        end
+        if value.is_a?(Integer)
+          if entry[key] == value
+            specsMet += 1
+          end
+        end
+        if value.is_a?(Regexp)
+          if entry[key].match(value)
+            specsMet += 1
+          end
+        end
+      }
+      if specsMet == searchObject.size
+        results.push(entry)
+      end
+    }
+
+    # searchObject.each {|key, value|
+    #   if value.is_a?(String)
+    #     self.each{|entry|
+    #       if entry[key].include? value
+    #         results.push(entry)
+    #       end
+    #     }
+    #   end
+    #   if value.is_a?(Integer)
+    #     self.each{|entry|
+    #       if entry[key] == value
+    #         results.push(entry)
+    #       end
+    #     }
+    #   end
+    #   if value.is_a?(Regexp)
+    #     # dividedVals = value.split('/')
+    #     # match = true
+    #     puts 'hi'
+    #     self.each{|entry|
+    #       if entry[key].match(value)
+    #         results.push(entry)
+    #       end
+    #     }
+        # dividedVals.each{|val|
+        #   self.each{|entry|
+        #     puts "regex #{val}"
+        #     if !entry[key].includes(val)
+        #       match = false
+        #     end
+        #   }
+        #   if match
+        #     results.push(entry)
+        #   end
+        # }
+    #
+    #   end
+    # }
+    puts "currently #{results.map{|x| x}}"
+    results
+  end
+end
+
 class WhereTest < Minitest::Test
   def setup
     @boris   = {:name => 'Boris The Blade', :quote => "Heavy is good. Heavy is reliable. If it doesn't work you can always hit them.", :title => 'Snatch', :rank => 4}
@@ -11,7 +82,7 @@ class WhereTest < Minitest::Test
   end
 
   def test_where_with_exact_match
-    assert_equal [@wolf], @fixtures.where(:name => 'The Wolf'),
+    assert_equal [@wolf], @fixtures.where(:name => 'The Wolf')
   end
 
   def test_where_with_partial_match
