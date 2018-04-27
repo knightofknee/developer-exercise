@@ -163,7 +163,7 @@ class Game
 
   def dealer_turn
     puts "The dealer has a #{@dealer_hand[0].name} of #{@dealer_hand[0].suite} and a #{@dealer_hand[1].name} of #{@dealer_hand[1].suite}"
-    while (calculate_player_score > calculate_dealer_score) && (calculate_dealer_score < 17) do
+    while (calculate_dealer_score < 17) do
       @dealer_hand.push(@deck.deal_card)
       puts "Dealer drew a #{@dealer_hand.last.name} of #{@dealer_hand.last.suite}"
     end

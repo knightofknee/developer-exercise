@@ -72,10 +72,10 @@ export default class Quotes extends Component {
             <input id="text-box" type="text" value={this.state.text} onChange={this.textChange} placeholder="Enter text for search here"/>
             <input type="submit" value="Search"/>
           </form>
-          <button disabled={!this.state.search} className="nav-item" onClick={this.clearSearch} type="button">Clear Search</button>
+          <button disabled={!this.state.search} className="nav-item" onClick={this.clearSearch} type="button" style={{backgroundColor: this.state.search ? '#FF99FF' : 'white'}}>Clear Search</button>
           <button className="nav-item" onClick={this.setThemeFilter('')} type="button"> All</button>
-          <button className="nav-item" onClick={this.setThemeFilter('movies')} type="button"> Movies</button>
-          <button className="nav-item" onClick={this.setThemeFilter('games')} type="button"> Games</button>
+          <button className="nav-item" onClick={this.setThemeFilter('movies')} type="button" style={{backgroundColor: this.state.theme == 'movies' ? '#FF99FF' : 'white'}}> Movies</button>
+          <button className="nav-item" onClick={this.setThemeFilter('games')} type="button" style={{backgroundColor: this.state.theme == 'games' ? '#FF99FF' : 'white'}}> Games</button>
           <span className="nav-item">Page: {' ' + this.state.pageNumber}</span>
           <button className="nav-item" type="button" disabled={(this.state.dataCount) < this.countPerPage} onClick={this.previousPage}> Previous Page</button>
           <button className="nav-item" type="button" disabled={displayCount <= this.countPerPage} onClick={this.nextPage}> Next Page</button>

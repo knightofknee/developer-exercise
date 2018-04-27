@@ -1,6 +1,8 @@
 Testing instructions:
 
 Quotes-
+npm run watch to have the Quotes list build and watch for changes
+npm run build-client to build it once
 To test the Quotes list, if you are in the main project directory in your terminal, you can enter the command 'serve' then view the page at http://localhost:5000/javascript/list_app/quotes.html
 
 Where-
@@ -8,7 +10,10 @@ Run the test.rb file to test the where method
 
 Blackjack-
 Run blackjack.rb to run some tests
-Run runblackjack.rb to play a hand (or simulate a hand, if the middle section of code is not commented out)
+Run runblackjack.rb to play a hand in the console
+Run simBlackjack.rb to simulate games
+
+simClassesBlackjack.rb probably has the cleanest classes, while the others are based on user inputs through the console
 
 
 
