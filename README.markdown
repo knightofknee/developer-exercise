@@ -1,3 +1,17 @@
+Testing instructions:
+
+Quotes-
+To test the Quotes list, if you are in the main project directory in your terminal, you can enter the command 'serve' then view the page at http://localhost:5000/javascript/list_app/quotes.html
+
+Where-
+Run the test.rb file to test the where method
+
+Blackjack-
+Run blackjack.rb to run some tests
+Run runblackjack.rb to play a hand (or simulate a hand, if the middle section of code is not commented out)
+
+
+
 Please fork the repository and complete all of the following exercises.
 When you are finished, submit a pull request for review.
 

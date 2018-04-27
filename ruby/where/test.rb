@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 
+#loops on array, then loops over each search key-value pair for each array entry, checking based on search type
 class Array
   def where(searchObject)
     results = []
@@ -27,46 +28,6 @@ class Array
         results.push(entry)
       end
     }
-
-    # searchObject.each {|key, value|
-    #   if value.is_a?(String)
-    #     self.each{|entry|
-    #       if entry[key].include? value
-    #         results.push(entry)
-    #       end
-    #     }
-    #   end
-    #   if value.is_a?(Integer)
-    #     self.each{|entry|
-    #       if entry[key] == value
-    #         results.push(entry)
-    #       end
-    #     }
-    #   end
-    #   if value.is_a?(Regexp)
-    #     # dividedVals = value.split('/')
-    #     # match = true
-    #     puts 'hi'
-    #     self.each{|entry|
-    #       if entry[key].match(value)
-    #         results.push(entry)
-    #       end
-    #     }
-        # dividedVals.each{|val|
-        #   self.each{|entry|
-        #     puts "regex #{val}"
-        #     if !entry[key].includes(val)
-        #       match = false
-        #     end
-        #   }
-        #   if match
-        #     results.push(entry)
-        #   end
-        # }
-    #
-    #   end
-    # }
-    puts "currently #{results.map{|x| x}}"
     results
   end
 end
